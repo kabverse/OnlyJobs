@@ -11,6 +11,10 @@
   margin-bottom: 0.5rem;
 }
 
+.faq-section .section-title h2 {
+  color: white;
+}
+
 .section-title p {
   font-size: 1rem;
   opacity: 0.9;
