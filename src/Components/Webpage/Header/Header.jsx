@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
@@ -18,16 +19,16 @@ const Header = () => {
         <div className="cta-group">
           <h3>For Job Seekers</h3>
           <p>Find your dream job and connect with top employers</p>
-          <a href="#" className="button button-white">
+          <Link to="/questions/jobseeker" className="button button-white">
             Create Your Profile
-          </a>
+          </Link>
         </div>
         <div className="cta-group">
           <h3>For Employers</h3>
           <p>Find the perfect candidates for your open positions</p>
-          <a href="#" className="button button-success">
+          <Link to="/questions/employer" className="button button-success">
             Post a Job
-          </a>
+          </Link>
         </div>
       </div>
     </section>

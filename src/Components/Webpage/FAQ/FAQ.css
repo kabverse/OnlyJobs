@@ -20,6 +20,10 @@
   opacity: 0.9;
 }
 
+.faq-section .section-title p {
+  color: white;
+}
+
 .faq-container {
   max-width: 90%;
   margin: 40px auto;

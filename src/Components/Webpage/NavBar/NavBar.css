@@ -20,6 +20,7 @@ body {
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 3.75rem;
 }
 
 .nav {
@@ -36,34 +37,37 @@ html {
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: 800;
-    color: var(--text);
-    text-decoration: none;
     display: flex;
     align-items: center;
+    text-decoration: none;
 }
 
-.logo-image {
-    height: 80px;
+.logo img {
+    height: 45px;
     width: auto;
-    object-fit: contain;
+    display: block;
+    margin: auto 0;
 }
 
 .nav-links {
     display: flex;
     gap: 40px;
+    align-items: center;
 }
 
 .nav-links a {
     color: var(--text);
     text-decoration: none;
     font-weight: 600;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
 }
 
 .nav-buttons {
     display: flex;
     gap: 16px;
+    align-items: center;
 }
 
 .button {
@@ -97,11 +101,11 @@ html {
 
 @media (max-width: 768px) {
     .nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         padding: 16px 24px;
-        background: var(--background);
+    }
+
+    .logo img {
+        height: 35px; /* Slightly smaller on mobile */
     }
 
     .nav-links {
@@ -119,8 +123,10 @@ html {
         border-radius: 50px;
         font-size: 20px;
     }
+}
 
-    .logo-image {
-        height: 45px;
+@media (max-width: 858px) {
+    .nav-links a {
+        display: none;
     }
 }

@@ -20,7 +20,7 @@ const SuccessStory = () => {
     ];
 
     return (
-        <section id="testimonials" className="success-story">
+        <section id="testimonials" className="section testimonials">
             <div className="section-title">
                 <h2>Success Stories</h2>
                 <p>Join thousands of satisfied users</p>

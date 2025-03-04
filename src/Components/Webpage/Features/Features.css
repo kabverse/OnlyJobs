@@ -22,8 +22,7 @@
 }
 
 .features-grid {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
     gap: 24px;
     padding: 0;
     justify-content: center;
@@ -78,7 +77,7 @@
     }
 
     .features-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
 

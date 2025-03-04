@@ -1,8 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./NavBar.css";
 import logo from "../../../assets/logo-blue.png";
 
 const NavBar = () => {
+    const location = useLocation();
+
+    // Hide navbar on login and questions pages
+    if (location.pathname === "/login" || location.pathname === "/Questions") {
+        return null;
+    }
+
     const scrollToSection = (sectionId) => {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -13,7 +20,7 @@ const NavBar = () => {
     return (
         <nav className="nav">
             <Link to="/" className="logo">
-                <img src={logo} alt="OnlyJobs Logo" className="logo-image" />
+                <img src={logo} alt="OnlyJobs Logo" />
             </Link>
             <div className="nav-links">
                 <a
@@ -77,10 +84,10 @@ const NavBar = () => {
                 </a>
             </div>
             <div className="nav-buttons">
-                <Link to="/" className="button button-white">
+                <Link to="/login" className="button button-white">
                     Log In
                 </Link>
-                <Link to="/Questions" className="button button-dark">
+                <Link to="/questions" className="button button-dark">
                     Sign Up
                 </Link>
             </div>

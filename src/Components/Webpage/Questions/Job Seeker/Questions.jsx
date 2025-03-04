@@ -148,59 +148,11 @@ const QuestionTemplates = {
 };
 
 const JobApplicationForm = () => {
-    const [roleSelected, setRoleSelected] = useState(false);
-    const [userRole, setUserRole] = useState("");
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [answers, setAnswers] = useState({});
     const [completed, setCompleted] = useState(false);
     const [error, setError] = useState("");
     const [animation, setAnimation] = useState("");
-
-    // Role selection handler
-    const handleRoleSelect = (role) => {
-        setUserRole(role);
-        setAnimation("slide-out");
-        setTimeout(() => {
-            setRoleSelected(true);
-            setAnimation("slide-in");
-        }, 300);
-    };
-
-    // Render role selection screen
-    const renderRoleSelection = () => {
-        return (
-            <div className={`role-selection-container ${animation}`}>
-                <h2 className="role-selection-title">Choose Your Path</h2>
-                <p className="role-selection-subtitle">
-                    Are you looking to hire or to be hired?
-                </p>
-
-                <div className="role-buttons">
-                    <div
-                        className="role-option"
-                        onClick={() => handleRoleSelect("jobseeker")}
-                    >
-                        <div className="role-icon">👔</div>
-                        <h3>Job Seeker</h3>
-                        <p>
-                            Find your dream job and connect with top employers
-                        </p>
-                    </div>
-
-                    <div
-                        className="role-option"
-                        onClick={() => handleRoleSelect("employer")}
-                    >
-                        <div className="role-icon">💼</div>
-                        <h3>Employer</h3>
-                        <p>
-                            Find the perfect candidates for your open positions
-                        </p>
-                    </div>
-                </div>
-            </div>
-        );
-    };
 
     // Questions array with all the questions we'll ask
     const questions = [
@@ -385,18 +337,6 @@ const JobApplicationForm = () => {
         }
     };
 
-    // Handle going back to role selection
-    const handleBackToRoles = () => {
-        setAnimation("slide-out-reverse");
-        setTimeout(() => {
-            setRoleSelected(false);
-            setCurrentQuestion(0);
-            setError("");
-            // Reset animation for role selection screen
-            setAnimation("slide-in");
-        }, 300);
-    };
-
     // Handle starting over
     const handleStartOver = () => {
         setAnimation("fade-out");
@@ -438,11 +378,8 @@ const JobApplicationForm = () => {
 
                 <div className="button-container">
                     {currentQuestion === 0 ? (
-                        <button
-                            onClick={handleBackToRoles}
-                            className="back-button"
-                        >
-                            <span className="button-text">Change Role</span>
+                        <button onClick={handleBack} className="back-button">
+                            <span className="button-text">Back</span>
                         </button>
                     ) : (
                         currentQuestion > 0 && (
@@ -549,15 +486,11 @@ const JobApplicationForm = () => {
 
     return (
         <div className="profile-container">
-            <Link to="/" className="back-home-arrow">
-                ← Back to Home
+            <Link to="/questions" className="back-home-arrow">
+                ← Back to Role Selection
             </Link>
             <div className="profile-card">
-                {!roleSelected
-                    ? renderRoleSelection()
-                    : !completed
-                    ? renderQuestion()
-                    : renderCompletion()}
+                {!completed ? renderQuestion() : renderCompletion()}
             </div>
         </div>
     );

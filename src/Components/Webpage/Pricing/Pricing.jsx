@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Pricing.css";
 
 const Pricing = () => {
@@ -14,14 +15,13 @@ const Pricing = () => {
                     <div className="price">Free</div>
                     <p>Everything you need to find your next role</p>
                     <ul className="price-features">
-                        <li>Create professional profile</li>
                         <li>Apply to unlimited jobs</li>
                         <li>Basic job matching</li>
                         <li>Chat with employers</li>
                     </ul>
-                    <a href="#" className="button button-dark">
+                    <Link to="/questions/jobseeker" className="button button-dark">
                         Get Started
-                    </a>
+                    </Link>
                 </div>
 
                 <div className="price-card">
@@ -36,9 +36,9 @@ const Pricing = () => {
                         <li>Team inbox</li>
                         <li>Basic analytics</li>
                     </ul>
-                    <a href="#" className="button button-success">
+                    <Link to="/questions/employer" className="button button-success">
                         Start Hiring
-                    </a>
+                    </Link>
                 </div>
 
                 <div className="price-card">
@@ -53,9 +53,9 @@ const Pricing = () => {
                         <li>Priority support</li>
                         <li>Full analytics suite</li>
                     </ul>
-                    <a href="#" className="button button-success">
+                    <Link to="/questions/employer" className="button button-success">
                         Contact Sales
-                    </a>
+                    </Link>
                 </div>
             </div>
         </section>
