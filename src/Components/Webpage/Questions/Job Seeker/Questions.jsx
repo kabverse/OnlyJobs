@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Questions.css";
 
 // Template components for different question types
@@ -148,9 +148,9 @@ const QuestionTemplates = {
 };
 
 const JobApplicationForm = () => {
+    const navigate = useNavigate();
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [answers, setAnswers] = useState({});
-    const [completed, setCompleted] = useState(false);
     const [error, setError] = useState("");
     const [animation, setAnimation] = useState("");
 
@@ -285,7 +285,7 @@ const JobApplicationForm = () => {
         }, 500);
 
         return () => clearTimeout(timer);
-    }, [currentQuestion, completed]);
+    }, [currentQuestion]);
 
     // Handle continue button click
     const handleContinue = () => {
@@ -319,8 +319,8 @@ const JobApplicationForm = () => {
                 setCurrentQuestion(currentQuestion + 1);
                 setError("");
             } else {
-                setCompleted(true);
-                setError("");
+                // Instead of showing completion screen, redirect to feed
+                navigate("/feed");
             }
         }, 300);
     };
@@ -335,18 +335,6 @@ const JobApplicationForm = () => {
                 setError("");
             }, 300);
         }
-    };
-
-    // Handle starting over
-    const handleStartOver = () => {
-        setAnimation("fade-out");
-
-        setTimeout(() => {
-            setCurrentQuestion(0);
-            setAnswers({});
-            setCompleted(false);
-            setError("");
-        }, 300);
     };
 
     // Render the current question
@@ -377,26 +365,17 @@ const JobApplicationForm = () => {
                 {error && <div className="error-message">{error}</div>}
 
                 <div className="button-container">
-                    {currentQuestion === 0 ? (
+                    {currentQuestion > 0 && (
                         <button onClick={handleBack} className="back-button">
                             <span className="button-text">Back</span>
                         </button>
-                    ) : (
-                        currentQuestion > 0 && (
-                            <button
-                                onClick={handleBack}
-                                className="back-button"
-                            >
-                                <span className="button-text">Back</span>
-                            </button>
-                        )
                     )}
                     <button
                         onClick={handleContinue}
                         className="continue-button"
                     >
                         <span className="button-text">
-                            {isLastQuestion ? "Complete" : "Continue"}
+                            {isLastQuestion ? "Complete Profile" : "Continue"}
                         </span>
                         <span className="button-arrow">➜</span>
                     </button>
@@ -422,76 +401,12 @@ const JobApplicationForm = () => {
         );
     };
 
-    // Render the completion screen
-    const renderCompletion = () => {
-        return (
-            <div className={`completion-container ${animation}`}>
-                <div className="completion-icon">🎉</div>
-                <h2 className="completion-title">Application Complete!</h2>
-                <div className="confetti-container">
-                    <div className="confetti confetti-1"></div>
-                    <div className="confetti confetti-2"></div>
-                    <div className="confetti confetti-3"></div>
-                    <div className="confetti confetti-4"></div>
-                    <div className="confetti confetti-5"></div>
-                    <div className="confetti confetti-6"></div>
-                </div>
-                <div className="profile-summary">
-                    <h3 className="summary-heading">Application Summary:</h3>
-                    {questions.map((question) => {
-                        // Skip file display in summary as it's just a File object
-                        if (question.type === "file") {
-                            return (
-                                <div key={question.id} className="summary-item">
-                                    <div className="summary-icon">
-                                        {question.icon}
-                                    </div>
-                                    <div className="summary-content">
-                                        <span className="summary-label">
-                                            {question.text}
-                                        </span>
-                                        <p className="summary-value">
-                                            {answers[question.id]
-                                                ? answers[question.id].name
-                                                : "No file uploaded"}
-                                        </p>
-                                    </div>
-                                </div>
-                            );
-                        }
-
-                        return (
-                            <div key={question.id} className="summary-item">
-                                <div className="summary-icon">
-                                    {question.icon}
-                                </div>
-                                <div className="summary-content">
-                                    <span className="summary-label">
-                                        {question.text}
-                                    </span>
-                                    <p className="summary-value">
-                                        {answers[question.id] || "Not provided"}
-                                    </p>
-                                </div>
-                            </div>
-                        );
-                    })}
-                </div>
-                <button onClick={handleStartOver} className="start-over-button">
-                    <span>Start Over</span>
-                </button>
-            </div>
-        );
-    };
-
     return (
         <div className="profile-container">
             <Link to="/questions" className="back-home-arrow">
                 ← Back to Role Selection
             </Link>
-            <div className="profile-card">
-                {!completed ? renderQuestion() : renderCompletion()}
-            </div>
+            <div className="profile-card">{renderQuestion()}</div>
         </div>
     );
 };

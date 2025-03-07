@@ -1,45 +1,33 @@
 import "./Features.css";
+import { Link } from "react-router-dom";
 
 const Features = () => {
     return (
         <section id="features" className="section">
-            <div className="section-title">
-                <h2>Features</h2>
-                <p>Everything you need to succeed in your hiring journey</p>
-            </div>
+            <div className="profile-container">
+                <div className="profile-card">
+                    <div className="profile-header">
+                        <h2>Your Professional Profile</h2>
+                        <p>Click below to view your complete profile</p>
+                    </div>
 
-            <div className="features-grid">
-                <div className="feature-card">
-                    <h3>For Job Seekers</h3>
-                    <ul>
-                        <li>AI-powered job matching</li>
-                        <li>One-click applications</li>
-                        <li>Real-time chat with employers</li>
-                        <li>Professional profile builder</li>
-                        <li>Interview scheduling</li>
-                    </ul>
-                </div>
-
-                <div className="feature-card">
-                    <h3>For Employers</h3>
-                    <ul>
-                        <li>Advanced candidate filtering</li>
-                        <li>Automated screening</li>
-                        <li>Team collaboration tools</li>
-                        <li>Analytics dashboard</li>
-                        <li>Branded company page</li>
-                    </ul>
-                </div>
-
-                <div className="feature-card">
-                    <h3>Platform Benefits</h3>
-                    <ul>
-                        <li>24/7 Support</li>
-                        <li>Secure data handling</li>
-                        <li>Mobile app access</li>
-                        <li>Regular updates</li>
-                        <li>Integration capabilities</li>
-                    </ul>
+                    <Link to="/profile" className="profile-link">
+                        <div className="profile-image-wrapper">
+                            <img
+                                src="https://randomuser.me/api/portraits/men/32.jpg"
+                                alt="Profile"
+                                className="profile-image"
+                            />
+                            <div className="online-indicator"></div>
+                        </div>
+                        <div className="profile-info">
+                            <h3>Alex Morgan</h3>
+                            <p>Senior Frontend Developer</p>
+                            <button className="view-profile-button">
+                                View Full Profile
+                            </button>
+                        </div>
+                    </Link>
                 </div>
             </div>
         </section>

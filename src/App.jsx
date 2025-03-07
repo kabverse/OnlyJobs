@@ -19,21 +19,24 @@ import Questions from "./Components/Webpage/Questions/Job Seeker/Questions";
 import Login from "./Components/Webpage/Login/Login";
 import RoleSelect from "./Components/Webpage/Questions/RoleSelect/RoleSelect";
 import HelperChat from "./Components/Webpage/Helper/HelperChat";
+import JobSeekerFeed from "./Components/Job Seeker/Feed/JobSeekerFeed";
+import JobSeekerProfile from "./Components/Job Seeker/Profile/JobSeekerProfile";
 
 // Layout component to handle navbar visibility
 const Layout = ({ children }) => {
     const location = useLocation();
-    const hideNavbarPaths = ["/login", "/questions"]; // Base paths to hide navbar
 
-    // Check if current path starts with any of the hide paths
-    const shouldHideNavbar = hideNavbarPaths.some((path) =>
-        location.pathname.startsWith(path)
-    );
+    // Only show navbar on home page
+    const showNavbar = location.pathname === "/";
+
+    // Only show help button on home page
+    const showHelpButton = location.pathname === "/";
 
     return (
         <>
-            {!shouldHideNavbar && <NavBar />}
+            {showNavbar && <NavBar />}
             {children}
+            {showHelpButton && <FloatingHelpButton />}
         </>
     );
 };
@@ -108,10 +111,15 @@ const App = () => {
                         element={<Questions />}
                     />
 
+                    {/* Job Seeker Feed */}
+                    <Route path="/feed" element={<JobSeekerFeed />} />
+
+                    {/* Job Seeker Profile */}
+                    <Route path="/profile" element={<JobSeekerProfile />} />
+
                     {/* Add employer questions route when ready */}
                     {/* <Route path="/questions/employer" element={<EmployerQuestions />} /> */}
                 </Routes>
-                <FloatingHelpButton />
             </Layout>
         </Router>
     );
