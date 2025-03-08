@@ -1,7 +1,7 @@
 /* Enhanced Questions.css with animations and fun elements */
 
 /* Base container */
-.profile-container {
+.profile-question-container {
     min-height: 100vh;
     background-color: #f0f4f8;
     background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
@@ -12,8 +12,7 @@
     width: 100%;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-
-.profile-card {
+.profile-question-card {
     background-color: white;
     padding: 1.5rem;
     border-radius: 1rem;

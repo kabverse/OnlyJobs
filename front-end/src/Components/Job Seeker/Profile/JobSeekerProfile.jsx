@@ -32,7 +32,7 @@ const JobSeekerProfile = () => {
                 description:
                     "Led the frontend development for a complete redesign of an e-commerce platform serving 2M+ monthly users. Improved performance by 40% and increased conversion rates by 15%.",
                 technologies: ["React", "Redux", "Node.js", "MongoDB"],
-                image: "https://via.placeholder.com/300x200?text=E-commerce+Project",
+                image: "https://cdn.shopify.com/s/files/1/0070/7032/files/best-web-design-3.png?v=1691010811",
             },
             {
                 id: 2,
@@ -40,7 +40,7 @@ const JobSeekerProfile = () => {
                 description:
                     "Designed and developed an interactive dashboard for healthcare professionals to monitor patient data in real-time. Implemented complex data visualizations and filtering capabilities.",
                 technologies: ["React", "D3.js", "Firebase", "Material UI"],
-                image: "https://via.placeholder.com/300x200?text=Healthcare+Dashboard",
+                image: "https://integrio.net/static/1542bae35ac6cdd1a583bdeeada0bddd/img-medical-visits.png",
             },
             {
                 id: 3,
@@ -48,7 +48,7 @@ const JobSeekerProfile = () => {
                 description:
                     "Built a comprehensive analytics tool for social media managers to track campaign performance across multiple platforms. Features include custom reporting and AI-powered recommendations.",
                 technologies: ["TypeScript", "React", "Python", "TensorFlow"],
-                image: "https://via.placeholder.com/300x200?text=Analytics+Tool",
+                image: "https://images.ctfassets.net/ukazlt65o6hl/gvI3xgLy4EVayvpZ60HSl/793e5c2763c324d5851535ef7c04575a/Hootsuite_social_analytics_dashboard.png",
             },
         ],
         education: [
@@ -130,9 +130,9 @@ const JobSeekerProfile = () => {
                             <span className="nav-icon">⚙️</span>
                             <span>Settings</span>
                         </Link>
-                        <Link to="/" className="nav-item">
+                        <Link to="/feed" className="nav-item">
                             <span className="nav-icon">🏠</span>
-                            <span>Go Back Home</span>
+                            <span>Your Feed</span>
                         </Link>
                     </nav>
                     <div className="sidebar-footer">

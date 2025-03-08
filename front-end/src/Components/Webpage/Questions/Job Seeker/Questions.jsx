@@ -402,11 +402,11 @@ const JobApplicationForm = () => {
     };
 
     return (
-        <div className="profile-container">
+        <div className="profile-question-container">
             <Link to="/questions" className="back-home-arrow">
                 ← Back to Role Selection
             </Link>
-            <div className="profile-card">{renderQuestion()}</div>
+            <div className="profile-question-card">{renderQuestion()}</div>
         </div>
     );
 };

@@ -40,7 +40,7 @@ const JobSeekerFeed = () => {
             posted: "2 days ago",
             description:
                 "We're looking for an experienced Frontend Developer to join our team and help build the next generation of our product. You'll be working with React, TypeScript, and modern web technologies.",
-            logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png",
+            logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
             isRemote: false,
             skills: ["React", "TypeScript", "JavaScript", "HTML", "CSS"],
         },
@@ -94,12 +94,12 @@ const JobSeekerFeed = () => {
         },
         {
             id: 2,
-            title: "UI/UX Design Fundamentals",
+            title: "Figma UI UX Design Essentials",
             instructor: "John Smith",
             duration: "6 weeks",
             rating: 4.6,
             students: 850,
-            image: "https://img-c.udemycdn.com/course/240x135/1748618_3a48_4.jpg",
+            image: "https://img-c.udemycdn.com/course/480x270/4359576_b9e1_2.jpg",
             price: "$69.99",
             enrolled: false,
         },
@@ -122,7 +122,7 @@ const JobSeekerFeed = () => {
             name: "Google",
             industry: "Technology",
             openings: 15,
-            logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png",
+            logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
             following: false,
         },
         {
@@ -538,11 +538,11 @@ const JobSeekerFeed = () => {
                     {/* Featured Course */}
                     <div className="featured-course">
                         <img
-                            src="https://img-c.udemycdn.com/course/750x422/3929162_7749_5.jpg"
+                            src="https://nxtshiksha.com/wp-content/uploads/2024/11/4.webp"
                             alt="Featured course"
                         />
                         <div className="featured-content">
-                            <h2>Master Modern Web Development</h2>
+                            <h2>The Complete Full-Stack Web Development Bootcamp</h2>
                             <p>
                                 Learn React, Node.js, and Modern JavaScript from
                                 industry experts. Start building professional
