@@ -145,7 +145,7 @@ function Login() {
 
                     <div className="signup-prompt">
                         Don't have an account?{" "}
-                        <Link to="/role-selection" className="signup-link">
+                        <Link to="/questions" className="signup-link">
                             Sign Up now
                         </Link>
                     </div>
