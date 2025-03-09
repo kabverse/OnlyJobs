@@ -1,16 +1,29 @@
 // src/components/Login.js
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const navigate = useNavigate();
+
+    // Function to validate email format
+    const isValidEmail = (email) => {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("Login submitted with:", email, password);
+
+        // Redirect to feed after login
+        navigate("/feed");
     };
+
+    // Check if both email and password are valid
+    const isFormValid = isValidEmail(email) && password.length > 0;
 
     return (
         <div className="login-page">
@@ -68,7 +81,7 @@ function Login() {
                     <h1>ONLY JOBS</h1>
                 </div>
 
-                <h2>Sign in to ONLY JOBS</h2>
+                <h2>Log in to ONLY JOBS</h2>
 
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
@@ -103,8 +116,8 @@ function Login() {
                         </a>
                     </div>
 
-                    <button type="submit" className="sign-in-button">
-                        Sign in
+                    <button type="submit" className="sign-in-button" disabled={!isFormValid}>
+                        Log in
                     </button>
 
                     <div className="divider">Or login with</div>

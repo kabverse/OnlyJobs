@@ -370,3 +370,8 @@ h2 {
     color: #6366f1;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+.sign-in-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
